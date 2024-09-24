@@ -1,0 +1,39 @@
+#login {
+  .login {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+
+    &-left {
+      flex: 2;
+      background-color: var(--quinary-color);
+
+      &-content {
+        padding: 2rem;
+
+        &-header {
+          padding-bottom: 2rem;
+
+          span {
+            font-size: var(--font-lg);
+            font-weight: bold;
+            color: var(--tertiary-color);
+          }
+        }
+
+        &-form {
+          display: flex;
+          flex-direction: column; /* Para que los elementos hijos se apilen verticalmente */
+          justify-content: center; /* Centrar verticalmente el contenido */
+          align-items: center; /* Centrar horizontalmente el contenido */
+          height: 100%;
+        }
+      }
+    }
+
+    &-right {
+      flex: 1;
+      background-color: var(--primary-color);
+    }
+  }
+}

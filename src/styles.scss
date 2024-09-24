@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+@import "./scss/variables.scss";
+@import "./app/components/login/login.component.scss";
+
+@font-face {
+  font-family: "RegularFont";
+  src: url("./assets/Fonts/Poppins-Regular.ttf");
+}
+
+* {
+  font-family: "RegularFont";
+  margin: 0;
+  font-size: var(--font-md);
+}
