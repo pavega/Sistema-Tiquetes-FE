@@ -11,3 +11,20 @@
   margin: 0;
   font-size: var(--font-md);
 }
+
+body {
+  overflow: hidden;
+}
+
+.custom-primary-btn {
+  border: 0;
+  background-color: var(--primary-color-blue);
+  color: var(--quinary-color);
+  padding: 0.5rem 1rem;
+  width: 100%;
+  border-radius: 0.5rem;
+
+  &:hover {
+    background-color: var(--secondary-color);
+  }
+}

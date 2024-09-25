@@ -1,18 +1,100 @@
 <div id="login">
     <div class="login">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="login-content">
+            <div class="login-content-img">
+            </div>
+            <h2>Sistema de Tiquetes</h2>
+
+            <div class="login-content-form">
+                <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+                    <div class=" form-group">
+                        <label for="email">Correo electrónico</label>
+                        <input name="email" formControlName="email" id="email-field" autocomplete="off"
+                            class="form-control" placeholder="usuario@email.com"
+                            [ngClass]="{ 'is-invalid': submitted && l['email'].errors }"
+                            pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?">
+                        <div *ngIf="submitted && l['email'].errors" class="custom-invalid-feedback">
+                            <div *ngIf="l['email'].errors['required']">Requerido</div>
+                            <div *ngIf="l['email'].errors['email'] || !l['email'].valid">Formato no valido</div>
+                        </div>
+                    </div>
+
+                    <div class=" form-group">
+                        <label for="password">Contraseña</label>
+                        <input [type]="showPassword ? 'text' : 'password'" name="password" formControlName="password"
+                            id="password-field" autocomplete="off" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && l['password'].errors }">
+                        <div class="icon-view-password" id="icon-view-password">
+                            <i class="fa-solid fa-eye" (click)="showPassword = !showPassword" *ngIf="showPassword"></i>
+                            <i class="fa-solid fa-eye-slash" (click)="showPassword = !showPassword"
+                                *ngIf="!showPassword"></i>
+                        </div>
+                        <div *ngIf="submitted && l['password'].errors" class="custom-invalid-feedback">
+                            <div *ngIf="l['password'].errors['required']">Requerido</div>
+                        </div>
+                    </div>
+
+                    <div *ngIf="credentialsError" class="custom-invalid-feedback">
+                        **Credenciales incorrectas
+                    </div>
+
+                    <button class="custom-primary-btn">
+                        Ingresar
+                    </button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div id="login">
+    <div class="login">
         <div class="login-left">
             <div class="login-left-content">
                 <div class="login-left-content-header">
-                    <span>Sistema de tiquetes</span>
                 </div>
 
                 <div class="login-left-content-form">
-                    <!-- <span>Sistema de tiquetes</span> -->
+                    <form [formGroup]="loginForm">
+                        <div class="login-left-content-form-header">
+                            <span>Sistema de tiquetes</span>
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input name="email" formControlName="email" id="email-field" autocomplete="off"
+                                class="form-control" placeholder="usuario@email.com"
+                                pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?">
+                        </div>
+
+                        <div class=" form-group">
+                            <label for="password">Contraseña</label>
+                            <input [type]="showPassword ? 'text' : 'password'" name="password"
+                                formControlName="password" id="password-field" autocomplete="off" class="form-control">
+                            <div class="icon-view-password" id="icon-view-password">
+                                <i class="fa-solid fa-eye" (click)="showPassword = !showPassword"
+                                    *ngIf="showPassword"></i>
+                                <i class="fa-solid fa-eye-slash" (click)="showPassword = !showPassword"
+                                    *ngIf="!showPassword"></i>
+                            </div>
+                        </div>
+
+                        <button class="custom-primary-btn">
+                            Ingresar
+                        </button>
+
+                    </form>
                 </div>
             </div>
         </div>
         <div class="login-right">
-            derecha
         </div>
     </div>
-</div>
+</div> -->

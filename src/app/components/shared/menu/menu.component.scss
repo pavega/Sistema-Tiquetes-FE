@@ -1,0 +1,11 @@
+#navbar {
+  .navbar {
+    &-logo {
+      background-image: url("../../../../assets/images/black-logo.png");
+      width: 1.5rem;
+      height: 1.5rem;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+}
