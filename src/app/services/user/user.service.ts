@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
+  constructor(private http: HttpClient) {}
 
-  constructor(private http: HttpClient) { }
-
-  get(){
-    // return this.http.get(`${environment.ws}/HorasExtra/GetProyectos`)
+  get() {
+    return this.http.get(`${environment.url}/HorasExtra/GetProyectos`);
   }
 }

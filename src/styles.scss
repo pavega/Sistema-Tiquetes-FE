@@ -28,3 +28,7 @@ body {
     background-color: var(--secondary-color);
   }
 }
+
+.p-carousel .p-carousel-indicators .p-carousel-indicator.p-highlight button {
+  background-color: var(--primary-color-blue);
+}

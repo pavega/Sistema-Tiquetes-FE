@@ -1,11 +1,22 @@
 #navbar {
   .navbar {
+    background: linear-gradient(
+      190deg,
+      var(--secondary-color) 0%,
+      var(--primary-color-blue) 8%,
+      var(--tertiary-color) 100%
+    );
+
     &-logo {
       background-image: url("../../../../assets/images/black-logo.png");
       width: 1.5rem;
       height: 1.5rem;
       background-size: cover;
       background-position: center;
+    }
+
+    a {
+      color: #fff;
     }
   }
 }

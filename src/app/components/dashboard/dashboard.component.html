@@ -1,1 +1,31 @@
 <app-menu></app-menu>
+
+<div id="dashboard">
+    <div class="dashboard">
+        <div class="dashboard-content">
+            <div class="dashboard-content-header" [@fadeIn]>
+                <div>
+                    <h2>Bienvenido (a) al Sistema de Tiquetes</h2>
+                </div>
+            </div>
+
+            <div class="dashboard-content-carousel" [@fadeIn]>
+                <p-carousel [value]="cards" [numVisible]="3" [numScroll]="3" [circular]="true"
+                    [responsiveOptions]="responsiveOptions">
+                    <ng-template let-card pTemplate="item">
+                        <div class="dashboard-content-carousel-container border-1 surface-border border-round m-2 p-3">
+                            <div class="dashboard-content-carousel-container-card">
+                                <div class="dashboard-content-carousel-container-card-front">
+                                    <fa-icon [icon]="card.icon" size="3x" class="icons"></fa-icon>
+                                </div>
+                                <div class="dashboard-content-carousel-container-card-back">
+                                    <small>Occaecat anim id voluptate ad.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-carousel>
+            </div>
+        </div>
+    </div>
+</div>
