@@ -46,6 +46,11 @@ export class DashboardComponent implements OnInit {
     { icon: faGear, title: 'Configuración' },
     { icon: faFileLines, title: 'Reportes' },
     { icon: faUser, title: 'Usuarios' },
+    { icon: faGear, title: 'Configuración' },
+    { icon: faFileLines, title: 'Reportes' },
+    { icon: faUser, title: 'Usuarios' },
+    { icon: faGear, title: 'Configuración' },
+    { icon: faFileLines, title: 'Reportes' },
   ];
 
   ngOnInit(): void {

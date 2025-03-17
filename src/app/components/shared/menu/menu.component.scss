@@ -6,6 +6,7 @@
       var(--primary-color-blue) 8%,
       var(--tertiary-color) 100%
     );
+    // background-color: var(--white);/
 
     &-logo {
       background-image: url("../../../../assets/images/black-logo.png");
@@ -16,7 +17,7 @@
     }
 
     a {
-      color: #fff;
+      color: var(--black);
     }
   }
 }

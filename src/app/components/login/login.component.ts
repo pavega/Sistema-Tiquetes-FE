@@ -13,6 +13,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Credentials } from '../../common/interfaces';
 import { validateCredentials } from '../../common/utils';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
+import { LoggedUser, Login } from '../../model/login';
 
 @Component({
   selector: 'app-login',
@@ -34,7 +36,11 @@ export class LoginComponent implements OnInit {
   submitted: boolean = false;
   credentialsError: boolean = false;
 
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
@@ -54,18 +60,30 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    const credentials: Credentials = {
-      email: this.l['email'].value,
-      password: this.l['password'].value,
+    const credentials: Login = {
+      Correo: this.l['email'].value,
+      Clave: this.l['password'].value,
     };
 
+    this.authService.authenticate(credentials).subscribe({
+      next: (loggedUser) => {
+        this.credentialsError = false;
+        console.log('Autenticación exitosa', loggedUser);
+        localStorage.setItem('logged', 'true');
+        this.router.navigate(['/dashboard']);
+      },
+      error: (error) => {
+        this.credentialsError = true;
+      },
+    });
+
     //TODO: Cambiar por validacion con el back
-    if (validateCredentials(credentials.email, credentials.password)) {
-      this.credentialsError = false;
-      localStorage.setItem('logged', 'true');
-      this.router.navigate(['/dashboard']);
-    } else {
-      this.credentialsError = true;
-    }
+    // if (validateCredentials(credentials.email, credentials.password)) {
+    //   this.credentialsError = false;
+    //   localStorage.setItem('logged', 'true');
+    //   this.router.navigate(['/dashboard']);
+    // } else {
+    //   this.credentialsError = true;
+    // }
   }
 }
